@@ -2,7 +2,10 @@ import os
 from .secret import *
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMP_DIR = os.path.join(BASE_DIR,'templates')
-DEBUG = True
+DEBUG = False
+
+SECRET_KEY = '(npqw(pz-h9(q!9*uku+^2ahjwoi!ezqdr#qjciv1-jeoxukyt'
+
 
 ALLOWED_HOSTS = ["*"]
 
@@ -79,4 +82,4 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
