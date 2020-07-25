@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="uk-navbar-container uk-margin" uk-navbar style="background: rgb(7,105,156);
+background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%, rgba(11,179,245,1) 50%, rgba(4,183,219,1) 100%);">
+    <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" style="color: white" href="#">FeedBack Management System</a>
+    </div>
+</nav>
+<div class="uk-container-large uk-margin-auto uk-padding-large uk-margin-auto-vertical">
+    <form>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend">Feedback Form</legend>
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Name">
+            </div>
+            <div class="uk-margin">
+                <select class="uk-select">
+                    {% if teachers %}
+                    	{% for teacher in teachers %}
+                    		{% if teacher.sir_name == "Other" %}
+                    		<option>{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
+                    		{% else %}
+                    		<option>{{ teacher.sir_name }}.&nbsp;{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
+                    		{% endif %}
+                    	{% endfor %}
+                    {% else %}
+                    {% endif %}
+                </select>
+            </div>
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            </div>
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

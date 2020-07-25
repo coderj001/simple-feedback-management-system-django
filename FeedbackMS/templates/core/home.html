@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<div uk-height-viewport="offset-top: true; offset-bottom: true" class="uk-cover-container uk-height-large uk-background-cover uk-light uk-flex uk-height-max-large" style="background: rgb(7,105,156);
+background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%, rgba(11,179,245,1) 50%, rgba(4,183,219,1) 100%);">
+    <div class="uk-width-1-1 uk-text-center uk-margin-auto uk-padding-large uk-margin-auto-vertical">
+		<div class="uk-container">
+			<h1 class="uk-h1">FeedBack Management System</h1>
+			<p class="uk-text-center"> Simple feedback management for student to use. </p>
+			<a class="uk-button uk-button-default uk-button-large uk-animation-scale-up"  href="{% url 'feedback' %}">Start</a>
+		</div>
+    </div>
+</div>
+{% endblock %}
