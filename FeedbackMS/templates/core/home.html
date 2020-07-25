@@ -1,5 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
+{% if messages %}
+{% for message in messages %}
+	<div><span uk-icon='icon: check'></span> {{ message }}</div>
+{% endfor %}
+{% endif %}
+
 <div uk-height-viewport="offset-top: true; offset-bottom: true" class="uk-cover-container uk-height-large uk-background-cover uk-light uk-flex uk-height-max-large" style="background: rgb(7,105,156);
 background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%, rgba(11,179,245,1) 50%, rgba(4,183,219,1) 100%);">
     <div class="uk-width-1-1 uk-text-center uk-margin-auto uk-padding-large uk-margin-auto-vertical">
@@ -10,4 +16,8 @@ background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%,
 		</div>
     </div>
 </div>
+{% endblock %}
+
+{% block script %}
+
 {% endblock %}

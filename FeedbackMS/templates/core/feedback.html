@@ -5,22 +5,26 @@ background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%,
     <div class="uk-navbar-left">
         <a class="uk-navbar-item uk-logo" style="color: white" href="#">FeedBack Management System</a>
     </div>
+    <div class="uk-navbar-right uk-padding-small">
+    	<a href="{% url 'home' %}" class="uk-button-default uk-button-small">Back</a>
+    </div>
 </nav>
 <div class="uk-container-large uk-margin-auto uk-padding-large uk-margin-auto-vertical">
-    <form>
+    <form method="post">
+    	{% csrf_token %}
         <fieldset class="uk-fieldset">
             <legend class="uk-legend">Feedback Form</legend>
             <div class="uk-margin">
-                <input class="uk-input" type="text" placeholder="Name">
+                <input name="username" class="uk-input" type="text" placeholder="Name">
             </div>
             <div class="uk-margin">
-                <select class="uk-select">
+                <select name="teacher" class="uk-select">
                     {% if teachers %}
                     	{% for teacher in teachers %}
                     		{% if teacher.sir_name == "Other" %}
-                    		<option>{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
+                    		<option value="{{ teacher.id }}">{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
                     		{% else %}
-                    		<option>{{ teacher.sir_name }}.&nbsp;{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
+                    		<option value="{{ teacher.id }}">{{ teacher.sir_name }}.&nbsp;{{ teacher.first_name }}&nbsp;{{ teacher.last_name }}, &lt;{{ teacher.deperment }}&gt;</option>
                     		{% endif %}
                     	{% endfor %}
                     {% else %}
@@ -28,9 +32,19 @@ background: linear-gradient(90deg, rgba(7,105,156,1) 0%, rgba(34,124,173,1) 28%,
                 </select>
             </div>
             <div class="uk-margin">
-                <textarea class="uk-textarea" rows="5" placeholder="Textarea"></textarea>
+            	<select name="rating" class="uk-select">
+            		<option value="Very Poor">Very Poor</option>
+            		<option value="Poor">Poor</option>
+            		<option value="Average">Average</option>
+            		<option value="Good">Good</option>
+            		<option value="Very Good">Very Good</option>
+            	</select>
+            </div>
+            <div class="uk-margin">
+                <textarea name="detail" class="uk-textarea" rows="5" placeholder="Details"></textarea>
             </div>
         </fieldset>
+        <button class="uk-button uk-button-primary uk-button-large">Submit</button>
     </form>
 </div>
 {% endblock %}
