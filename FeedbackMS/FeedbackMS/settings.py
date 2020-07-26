@@ -1,10 +1,8 @@
 import os
-# from .secret import *
+from .secret import *
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMP_DIR = os.path.join(BASE_DIR,'templates')
-DEBUG = False
-
-SECRET_KEY = 'w(9gsu$u1m**p54n0*tozp3!&g!ay-lhr*qzsc6b7w@9w#n))='
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
