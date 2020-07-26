@@ -81,6 +81,4 @@ USE_L10N = True
 
 USE_TZ = True
 
-set DISABLE_COLLECTSTATIC=1
-
 STATIC_URL = '/static/'
